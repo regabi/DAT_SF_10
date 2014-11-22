@@ -46,12 +46,15 @@ def scoreModels(features, target, folds=10):
     models.append(RandomForestClassifier(random_state=0).fit)
     models.append(LogisticRegression(C=1.0).fit)
     models.append(KNeighborsClassifier(3).fit)
-    models.append(SVC(C=1.0))
+    models.append(SVC(C=1.0).fit)
     models.append(GaussianNB().fit)
 
     for alg in models:
         print alg
         print cross_validate(features, target, alg, folds)
+
+def feature_correlations(features, target):
+    
 
 
 def main():
